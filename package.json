@@ -1,7 +1,8 @@
 {
-    "name": "nodejs-lib-template",
+    "name": "pnpm-count",
     "_": "[bump]",
     "version": "0.0.1",
+    "bin": "./dist/bin.js",
     "description": "",
     "main": "dist/index.js",
     "module": "esm/index.js",
@@ -19,23 +20,31 @@
     "scripts": {
         "test": "NODE_ENV=test mocha --colors --exit",
         "preinstall": "npx only-allow pnpm",
-        "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports",
-        "dev": "yarn compile && node dist"
+        "compile": "sucrase -q ./src -d ./dist --transforms typescript,imports && chmod +x dist/bin.js",
+        "build": "tsc && chmod +x dist/bin.js",
+        "dev": "yarn compile && node dist",
+        "cli": "yarn compile && node dist/bin"
     },
     "keywords": [],
     "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
     "license": "ISC",
     "devDependencies": {
+        "@types/lodash": "^4.14.161",
         "@types/mocha": "^7.0.2",
-        "@types/node": "^14.0.11",
+        "@types/node": "^14.10.1",
+        "@types/yargs": "^15.0.5",
         "assert": "^2.0.0",
         "dotenv": "^8.2.0",
         "mocha": "^7.2.0",
         "only-allow": "^1.0.0",
+        "snap-shot-it": "^7.9.3",
         "sucrase": "^3.15.0",
         "typescript": "^3.9.5"
     },
     "dependencies": {
-        "tslib": "^2.0.0"
+        "chalk": "^4.1.0",
+        "lodash": "^4.17.20",
+        "tslib": "^2.0.0",
+        "yargs": "^16.0.3"
     }
 }
