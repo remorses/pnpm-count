@@ -1,7 +1,7 @@
 {
     "name": "pnpm-count",
     "_": "[bump]",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "bin": "./dist/bin.js",
     "description": "",
     "main": "dist/index.js",
