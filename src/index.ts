@@ -11,8 +11,7 @@ export function getPnpmWhy({ pkg, recursive: r }) {
 
         return res
     } catch {
-        console.error('cannot get pnpm why output')
-        return []
+        throw new Error('cannot get pnpm why output')
     }
 }
 
