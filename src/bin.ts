@@ -20,7 +20,9 @@ const argv = yargs
                 throw new Error('positional arg is required')
             }
             const recursive = argv.recursive
+            console.info('running pnpm why command')
             const why = getPnpmWhy({ pkg, recursive })
+            console.info('traversing the dependency tree')
             // console.log(why)
             const res = processWhyOutput(pkg, why)
             console.info()
